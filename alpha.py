@@ -1,8 +1,7 @@
 class MyAlphaModel:
     
     def __init__(self):
-        self.averages = {}
-        
+        self.averages = {1:1}
     
     def AlphaScores(self, algorithm, securities, holdings):
         

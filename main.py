@@ -2,7 +2,6 @@ from universe_selection import MyUniverseSelectionModel
 from alpha import MyAlphaModel
 from execution import MyExecutionModel
 
-
 class EMACrossover(QCAlgorithm):
 
     def Initialize(self):
@@ -30,12 +29,10 @@ class EMACrossover(QCAlgorithm):
         self.AddEquity('SPY', Resolution.Daily)
         self.Schedule.On(self.DateRules.EveryDay('SPY'), self.TimeRules.At(9, 30), Action(self.RebalancePortfolio))
         
-        
     def RebalancePortfolio(self):
         
         insights = self.AlphaModel.AlphaScores(self, self.securities, self.holdings)
         self.ExecutionModel.ExecuteOrders(self, insights)
-        
-        
+
     def OnData(self, data):
         pass
